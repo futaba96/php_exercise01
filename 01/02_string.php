@@ -3,6 +3,6 @@
 $food = 'りんご';
 $drink = 'みかんジュース';
 
-$break_fast = 'りんごとみかんジュース';
+$break_fast = $food . 'と' . $drink;
 
 echo $break_fast;
