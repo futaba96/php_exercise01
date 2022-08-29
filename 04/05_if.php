@@ -3,7 +3,11 @@
 echo '$numの値を入力して下さい: ';
 $num = trim(fgets(STDIN));
 
-$judge= true;
+$judge = true;
+
+if ($num == 1) {
+    $judge = false;
+}
 for ($i = 2; $i < $num; $i++) {
     if ($num % $i == 0) {
         $judge = false;
