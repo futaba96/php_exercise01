@@ -3,7 +3,6 @@
 $subjects = ['数学', '英語', '理科', '社会', '国語'];
 
 foreach ($subjects as $subject) {
-    echo "{$subject}の試験は{$msg}です。" . PHP_EOL;
 
 
     switch ($subject) {
@@ -27,5 +26,5 @@ foreach ($subjects as $subject) {
             $msg = '中止';
             break;
     }
+    echo "{$subject}の試験は{$msg}です。" . PHP_EOL;
 }
-
