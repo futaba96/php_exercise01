@@ -4,16 +4,20 @@ $num1 = '';
 $num2 = '';
 $num3 = '';
 
+$err_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num1 = htmlspecialchars($_POST['number1'], ENT_QUOTES, "UTF-8");
     $num2 = htmlspecialchars($_POST['number2'], ENT_QUOTES, "UTF-8");
     $num3 = htmlspecialchars($_POST['number3'], ENT_QUOTES, "UTF-8");
 
-    if (empty($msg)) {
-        $err_msg = '全てに数字を入力してください';
-    }
+    $sum += $num1; $num2; $num3;
 }
+
+if (empty($num1 || $num2 || $num3)) {
+    $err_msg = '全てに数字を入力してください';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
     <?
-    $sum = $num1 + $num2 + $num3;
+
     echo '合計値は' . htmlspecialchars($sum) . 'です';
 
     ?>

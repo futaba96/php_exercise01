@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </form>
     <?
-    if (isset($_POST['age']))
+    if (isset($_POST['age']) && (empty($err_msg)))
         echo "\n私は{$msg}歳です";
     ?>
 </body>

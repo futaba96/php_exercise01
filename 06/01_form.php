@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?
     if (isset($_POST['age']))
-        echo "\n私は{$msg}歳です";
+        echo  "<br>私は{$msg}歳です";
     ?>
 </body>
 
