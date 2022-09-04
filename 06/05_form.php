@@ -7,14 +7,14 @@ $num3 = '';
 $err_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $num1 = htmlspecialchars($_POST['number1'], ENT_QUOTES, "UTF-8");
-    $num2 = htmlspecialchars($_POST['number2'], ENT_QUOTES, "UTF-8");
-    $num3 = htmlspecialchars($_POST['number3'], ENT_QUOTES, "UTF-8");
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+    $num3 = $_POST['num3'];
 
-    $sum += $num1; $num2; $num3;
+    $sum = $num1 + $num2 +  $num3;
 }
 
-if (empty($num1 || $num2 || $num3)) {
+if (!is_numeric($num1 || $num2 || $num3)) {
     $err_msg = '全てに数字を入力してください';
 }
 
@@ -32,30 +32,29 @@ if (empty($num1 || $num2 || $num3)) {
     <h1>数字を入力してください</h1>
     <form action="" method="POST">
         <div>
-            <?php if (is_numeric($num1 && $num2 && $num3)) : ?>
+            <?php if (!empty($err_msg)) : ?>
                 <ul>
                     <li><?= $err_msg ?></li>
                 </ul>
             <?php endif; ?>
             <label for="">1つ目の数字</label><br>
-            <input type="text" name="number1">
+            <input type="text" name="num1">
         </div>
         <div>
             <label for="">2つ目の数字</label><br>
-            <input type="text" name="number2">
+            <input type="text" name="num2">
         </div>
         <div>
             <label for="">3つ目の数字</label><br>
-            <input type="text" name="number3">
+            <input type="text" name="num3">
         </div>
         <div>
             <input type="submit" name="送信">
         </div>
     </form>
-    <?
 
-    echo '合計値は' . htmlspecialchars($sum) . 'です';
-
-    ?>
+    <?php if (!empty($sum)) : ?>
+        <p>合計値は <?= htmlspecialchars($sum, ENT_QUOTES, 'UTF-8') ?>です</p>
+    <?php endif; ?>
 
 </html>

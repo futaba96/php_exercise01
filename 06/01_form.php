@@ -1,9 +1,9 @@
 <?php
 
-$msg = '';
+$age = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $msg = htmlspecialchars($_POST['age'], ENT_QUOTES, "UTF-8");
+    $age = htmlspecialchars($_POST['age'], ENT_QUOTES, "UTF-8");
 }
 ?>
 
@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <?
-    if (isset($_POST['age']))
-        echo  "<br>私は{$msg}歳です";
+    if (!empty($age))
+        echo  "<br>私は{$age}歳です";
     ?>
 </body>
 

@@ -1,9 +1,9 @@
 <?php
-$msg = '';
+$age = '';
 $err_msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $msg = $_POST['age'];
+    $age = $_POST['age'];
 
     if (empty($msg)) {
         $err_msg = '年齢を入力してください';
@@ -29,17 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </ul>
             <?php endif; ?>
             <label for="">年齢</label>
-            <input type="text" name="age" value="<?= $msg ?>">
+            <input type="text" name="age" value="<?= $age ?>">
         </div>
         <div>
             <input type="submit" value="送信">
         </div>
 
     </form>
-    <?
-    if (isset($_POST['age']) && (empty($err_msg)))
-        echo "\n私は{$msg}歳です";
-    ?>
+
+    <?php if (!empty($age)) : ?>
+        <p>私は<?= htmlspecialchars($age, ENT_QUOTES, 'UTF-8') ?>歳です</p>
+    <?php endif; ?>
+
 </body>
 
 </html>
