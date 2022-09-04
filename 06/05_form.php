@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num1 = $_POST['num1'];
     $num2 = $_POST['num2'];
     $num3 = $_POST['num3'];
-
-    $sum = $num1 + $num2 +  $num3;
 }
 
-if (!is_numeric($num1 || $num2 || $num3)) {
-    $err_msg = '全てに数字を入力してください';
+if (is_numeric($num1) && is_numeric($num2) && is_numeric($num3)) {
+    $sum = $num1 + $num2 + $num3;
+} else {
+    $err_msg = 'すべてに数字を入力してください';
 }
 
 ?>
