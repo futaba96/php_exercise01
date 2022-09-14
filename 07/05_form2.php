@@ -8,28 +8,26 @@ $err_msgs = [];
 
 $items = ['バッグ', '靴', '時計', 'ネックレス', 'ピアス'];
 
-// コードを追記
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $tel = $_POST['tel'];
     $email = $_POST['email'];
     $item_key = $_POST['item_key'];
+
+    if (empty($name)) {
+        $err_msgs[] = '氏名を入力してください';
+    }
+    if (empty($tel)) {
+        $err_msgs[] = '電話番号を入力してください';
+    }
+    if (empty($email)) {
+        $err_msgs[] = 'メールアドレスを入力してください';
+    }
 }
 
 if (!empty($name && $tel && $email && $item_key)) {
-    header('Location: 05_confirm.php');
+    header('Location: 05_confirm.php?purchase_item=' . $item_key);
     exit;
-}
-
-
-if (empty($name)) {
-    $err_msgs[] = '氏名を入力してください';
-}
-if (empty($tel)) {
-    $err_msgs[] = '電話番号を入力してください';
-}
-if (empty($email)) {
-    $err_msgs[] = 'メールアドレスを入力してください';
 }
 
 ?>
@@ -60,7 +58,6 @@ if (empty($email)) {
 
     <form action="" method="post">
 
-        <!-- // コードを追記 -->
         氏名 <br><input type="text" name="name">
         <br>電話番号<br><input type="tel" name="tel">
         <br>メールアドレス<br><input type="email" name="email">

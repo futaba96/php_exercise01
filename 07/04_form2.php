@@ -15,17 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tel = $_POST['tel'];
     $email = $_POST['email'];
     $item_key = $_POST['item_key'];
+
+    if (empty($name)) {
+        $err_msgs[] = '氏名を入力してください';
+    }
+    if (empty($tel)) {
+        $err_msgs[] = '電話番号を入力してください';
+    }
+    if (empty($email)) {
+        $err_msgs[] = 'メールアドレスを入力してください';
+    }
 }
 
-if (empty($name)) {
-    $err_msgs[] = '氏名を入力してください';
-}
-if (empty($tel)) {
-    $err_msgs[] = '電話番号を入力してください';
-}
-if (empty($email)) {
-    $err_msgs[] = 'メールアドレスを入力してください';
-}
 ?>
 
 <!DOCTYPE html>

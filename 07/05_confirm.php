@@ -8,32 +8,8 @@ $prices = [
     'ピアス' => 10000
 ];
 
-// コードを追記
-
-foreach ($prices as $item => $value) {
-
-    switch ($item) {
-        case 'バッグ':
-            $value = 1500;
-            break;
-
-        case '靴':
-            $value = 3000;
-            break;
-
-        case '時計':
-            $value = 6000;
-            break;
-
-        case 'ネックレス':
-            $value = 9000;
-            break;
-
-        case 'ピアス':
-            $value = 10000;
-            break;
-    }
-}
+$purchase_item = $_GET['purchase_item'];
+$payment = $prices[$purchase_item];
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +25,7 @@ foreach ($prices as $item => $value) {
 <body>
     <h2>ご注文ありがとうございます</h2>
     <!-- // コードを追記 -->
-    <?php echo "<h2>お支払金額は{$value}円です</h2>"; ?>
+    <?php echo "<h2>お支払金額は{$payment}円です</h2>"; ?>
     <br><a href="05_form2.php">戻る</a>
 
 </body>

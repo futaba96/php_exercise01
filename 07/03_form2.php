@@ -2,18 +2,24 @@
 
 $score = '';
 $err_msg = '';
+$judge = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $score = $_POST['score'];
+    $judge = $_POST['judge'];
 
     if (empty($score)) {
         $err_msg = '点数が入力されていません。';
+    } elseif ($score > 60) {
+        $judge = '合格';
+    } else {
+        $judge = '不合格';
     }
-}
 
-if (empty($err_msg)) {
-    header('Location: 03_judge_ment.php');
-    exit;
+    if (!empty($judge)) {
+        header('Location: 03_judge_ment.php?judge=' . $judge);
+        exit;
+    }
 }
 
 ?>
@@ -37,8 +43,8 @@ if (empty($err_msg)) {
         </ul>
     <?php endif; ?>
 
-    <form action="03_judge_ment.php" method="GET">
-        <input type="number" name="score" value="<?= $score ?>">
+    <form action="03_judge_ment.php" method="POST">
+        <input type="number" name="score">
         <input type="submit" value="送信">
     </form>
 </body>

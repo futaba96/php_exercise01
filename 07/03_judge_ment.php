@@ -9,15 +9,8 @@
 </head>
 
 <body>
-    <?
-    if ($_GET['score'] < 60) {
-        echo '<h1>不合格です</h1>';
-    }
-    if ($_GET['score'] >= 60) {
-        echo '<h1>合格です</h1>';
-    }
-    ?>
 
+    <h2><? $judgeです ?></h2>
     <br><a href="03_form2.php">戻る</a>
 </body>
 

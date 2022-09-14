@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php
 
     if (!empty($select_stylist)) {
-        echo "<br>あなたの担当は{$stylists_val}です";
+        echo "<br>あなたの担当は{$stylists[$select_stylist]}です";
     }
     ?>
 
