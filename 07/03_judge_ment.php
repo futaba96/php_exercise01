@@ -1,3 +1,7 @@
+<?php
+$judge = $_GET['judge'];
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,8 +13,7 @@
 </head>
 
 <body>
-
-    <h2><? $judgeです ?></h2>
+    <h2><?= $judge ?>です</h2>
     <br><a href="03_form2.php">戻る</a>
 </body>
 

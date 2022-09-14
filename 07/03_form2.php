@@ -6,8 +6,7 @@ $judge = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $score = $_POST['score'];
-    $judge = $_POST['judge'];
-
+   
     if (empty($score)) {
         $err_msg = '点数が入力されていません。';
     } elseif ($score > 60) {
@@ -43,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </ul>
     <?php endif; ?>
 
-    <form action="03_judge_ment.php" method="POST">
+    <form action="" method="POST">
         <input type="number" name="score">
         <input type="submit" value="送信">
     </form>
