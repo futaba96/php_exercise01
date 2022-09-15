@@ -56,22 +56,22 @@ if (!empty($name && $tel && $email && $item_key)) {
 
     <form action="" method="post">
 
-        氏名 <br><input type="text" name="name" value="<?php if (isset($name)) {
-                                                            echo $name;
-                                                        } ?>">
-        <br>電話番号<br><input type="tel" name="tel" value="<?php if (isset($tel)) {
-                                                            echo $tel;
-                                                        } ?>">
-        <br>メールアドレス<br><input type="email" name="email" value="<?php if (isset($email)) {
-                                                                    echo $email;
-                                                                } ?>">
+        氏名 <br><input type="text" name="name" value="<?= $name ?>">
+        <br>電話番号<br><input type="tel" name="tel" value="<?= $tel ?>">
+        <br>メールアドレス<br><input type="email" name="email" value="<?= $email ?>">
 
         <h3>購入するものを選択してください</h3>
 
         <select name="item_key">
-            <?php foreach ($items as $item) : ?>
-                <option value="<?= $item ?>"><?= $item ?></option>
-            <?php endforeach; ?>
+            <?php
+            foreach ($items as $item) {
+                if ($item === $item_key) {
+                    echo "<option value='$item' selected>" . $item . "</option>";
+                } else {
+                    echo "<option value='$item'>" . $item . "</option>";
+                }
+            }
+            ?>
         </select>
 
         <br>

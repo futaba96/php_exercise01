@@ -22,23 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <?php
-    if (empty($score)) {
-    ?>
 
+    <?php if (empty($score)) : ?>
         <h1>点数を入力してください</h1>
-
-    <?php
-    } elseif ($score >= 60) {
-    ?>
+    <?php elseif ($score >= 60) : ?>
         <h2>合格です</h2>
-    <?php
-    } else {
-    ?>
+    <?php else : ?>
         <h2>不合格です</h2>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
+
     <?php if (!empty($err_msg)) : ?>
         <ul>
             <li><?= $err_msg ?></li>
