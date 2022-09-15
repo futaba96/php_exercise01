@@ -42,8 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h3>個人情報を入力してください</h3>
 
-    <!-- // コードを追記 -->
-
     <?php if (!empty($err_msgs)) : ?>
         <h2>エラーメッセージ</h2>
         <ul>
@@ -71,13 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <h3>購入するものを選択してください</h3>
+
         <select name="item_key">
-            <option value=""></option>
-            <?php
-            foreach ($items as $item) {
-                echo "<option value='$item'>$item</option>";
-            }
-            ?>
+            <?php foreach ($items as $item) : ?>
+                <option value="<?= $item ?>"><?= $item ?></option>
+            <?php endforeach; ?>
         </select>
 
         <br>
@@ -86,17 +82,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
 
-    <!-- // コードを追記 -->
 
-    <?php
-    if (!empty($name) && ($tel) && ($email) && ($item_key)) {
-        echo "<h3>以下の内容が送信されました</h3>";
-        echo "氏名:  $name" . '<br>';
-        echo "電話番号: $tel" . '<br>';
-        echo "メールアドレス:  $email" . '<br>';
-        echo  "購入するもの:  $item_key" . '<br>';
-    }
-    ?>
+    <?php if (!empty($name && $tel && $email && $item_key)) : ?>
+        <h3>以下の内容が送信されました｡</h3>
+        <table>
+            <tr>
+                <td>氏名:</td>
+                <td><?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></td>
+            </tr>
+            <tr>
+                <td>電話番号:</td>
+                <td><?= htmlspecialchars($tel, ENT_QUOTES, 'UTF-8') ?></td>
+            </tr>
+            <tr>
+                <td>メールアドレス:</td>
+                <td><?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?></td>
+            </tr>
+            <tr>
+                <td>購入するもの:</td>
+                <td><?= $item_key ?></td>
+            </tr>
+        </table>
+    <?php endif; ?>
 
 </body>
 

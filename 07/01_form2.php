@@ -28,23 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>希望する美容師のランクを選んでください</h1>
     <form action="" method="post">
         <select name="stylist">
-            <!-- ここにコードを追記 -->
-            <? foreach ($stylists as $stylists_key => $stylists_val)
-                echo "<option value='$stylists_key'>$stylists_key</option>";
-            ?>
+
+            <?php foreach ($stylists as $stylists_key => $stylists_val) : ?>
+                <option value="<?= $stylists_key ?>"><?= $stylists_key ?></option>
+            <?php endforeach; ?>
 
         </select>
         <br>
         <input type="submit" value="送信">
     </form>
-    <!-- ここにコードを追記 -->
 
-    <?php
 
-    if (!empty($select_stylist)) {
-        echo "<br>あなたの担当は{$stylists[$select_stylist]}です";
-    }
-    ?>
+    <?php if ($select_stylist) : ?>
+        <p>あなたの担当は<?= $stylists[$select_stylist] ?>です</p>
+    <?php endif; ?>
 
 </body>
 

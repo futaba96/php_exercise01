@@ -24,8 +24,7 @@ $payment = $prices[$purchase_item];
 
 <body>
     <h2>ご注文ありがとうございます</h2>
-    <!-- // コードを追記 -->
-    <?php echo "<h2>お支払金額は{$payment}円です</h2>"; ?>
+    <h2>お支払金額は、<?= $payment ?>円です</h2>
     <br><a href="05_form2.php">戻る</a>
 
 </body>
