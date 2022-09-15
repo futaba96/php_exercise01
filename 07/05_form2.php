@@ -62,17 +62,15 @@ if (!empty($name && $tel && $email && $item_key)) {
 
         <h3>購入するものを選択してください</h3>
 
-        <select name="item_key">
-            <?php
-            foreach ($items as $item) {
-                if ($item === $item_key) {
-                    echo "<option value='$item' selected>" . $item . "</option>";
-                } else {
-                    echo "<option value='$item'>" . $item . "</option>";
-                }
-            }
-            ?>
-        </select>
+            <select name="item_key">
+                <?php foreach ($items as $item) : ?>
+                    <option <?php if (isset($item_key) && $item_key == $item) {
+                                echo "selected";
+                            } ?> value="<?= $item ?>">
+                        <?= $item ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
         <br>
         <div class=" submit">
