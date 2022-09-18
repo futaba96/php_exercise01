@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $dates = date('Y年m月d日');
     $today = $week[date("w")];
-
 }
 
 ?>
