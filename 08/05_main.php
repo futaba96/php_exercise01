@@ -1,13 +1,13 @@
 <?php
 
 $week = ["日", "月", "火", "水", "木", "金", "土"];
-$today = $week[date("w")];
 
-$dates = date('Y年m月d日');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dates;
-    $today;
+
+    $dates = date('Y年m月d日');
+    $today = $week[date("w")];
+
 }
 
 ?>
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 </body>
-<?php if (empty($dates && $today)) : ?>
+<?php if (empty($dates)) : ?>
     <h2>本日の日付、曜日を確認しますか？</h2>
 
     <form action="" method="POST">

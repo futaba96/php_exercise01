@@ -14,6 +14,6 @@ $today_meal = [
     'パスタ' => 400
 ];
 
-$total_meals = array_merge($yesterday_meal + $today_meal);
+$total_meals = array_merge($yesterday_meal , $today_meal);
 
 echo calc_cal($total_meals);
